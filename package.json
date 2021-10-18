@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint index.js"
   },
   "repository": {
-    "type": "git",
+    "type": "modules",
     "url": "git+https://github.com/yudzeshka/demo-net.git"
   },
   "author": "",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/yudzeshka/demo-net/issues"
   },
-  "homepage": "https://github.com/yudzeshka/demo-net#readme"
+  "homepage": "https://github.com/yudzeshka/demo-net#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
 }
