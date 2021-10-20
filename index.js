@@ -1,30 +1,43 @@
-console.log("aaaa");
-// function randomDate(start, end) {
-//   return new Date(
-//     start.getTime() + Math.random() * (end.getTime() - start.getTime())
-//   );
-// }
-
-// let data = randomDate(new Date(2012, 0, 1), new Date(2020, 1, 2));
-// console.log(data);
-
-function randomDate(start, end) {
-  return new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime())
-  );
-}
-
-console.log(randomDate(new Date(2012, 0, 1), new Date()).toJSON().split("T")[0]);
-
-
-
 import fetch from 'node-fetch';
+
+let addUsersCount = process.argv[2];
 
 const apiBase = 'http://localhost:3000';
 
 const Endpoints = {
   users: '/users',
 };
+
+class User {
+  constructor() {
+    this.firstName = randomNumber(fnArr);
+    this.lastName = randomNumber(lnArr);
+    this.birthDate = randomDate(new Date(2003, 10, 20), new Date(2008, 10, 20)).toJSON().split("T")[0];
+  }
+}
+
+const fnArr = ['Andrea', 'Emilie', 'Sharon', 'Bujar', 'Florival', 'Laure', 'Olivia', 'Zaide', 'Felix', 'Oswin'];
+
+const lnArr = ['Sørensen', 'Kanestrøm', 'Hart', 'Arnaud', 'Monteiro', 'Giraud', 'Omahony', 'Moraes', 'Singh', 'Schurig']
+
+//---Get random date
+function randomDate(start, end) {
+  return new Date(
+    start.getTime() + Math.random() * (end.getTime() - start.getTime())
+  );
+}
+
+//---Get random number
+function randomNumber(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+//---Create and add new user
+function createNewUser() {
+  const user = new User();
+  addUser(user)
+
+}
 
 const getUsers = async () => {
   const response = await fetch(`${apiBase}${Endpoints.users}`);
@@ -43,27 +56,14 @@ const addUser = async (user) => {
   const result = await newUserResponse.json();
   return result;
 };
-const fnArr = ['Andrea', 'Emilie', 'Sharon', 'Bujar', 'Florival', 'Laure', 'Olivia', 'Zaide', 'Felix', 'Oswin'];
-const lnArr = ['Sørensen', 'Kanestrøm', 'Hart', 'Arnaud', 'Monteiro', 'Giraud', 'Omahony', 'Moraes', 'Singh', 'Schurig']
+
 const main = async () => {
+  
+  for (let i = 0; i < addUsersCount; i++) {
+    createNewUser()
+    }
+
   console.log(await getUsers());
-
-  const user = {
-
-    firstName: 'John',
-    lastName: 'Doe',
-    birthDate: '1995-05-23', // between 13 - 18
-  };
-
-  console.log(await addUser(user));
 };
 
 main().then();
-
-
-
-function randomNumber(arr) {
-   return arr[Math.floor(Math.random() * arr.length)];
-}
-
-console.log(randomNumber(fnArr));
