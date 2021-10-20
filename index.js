@@ -12,13 +12,18 @@ class User {
   constructor() {
     this.firstName = randomNumber(fnArr);
     this.lastName = randomNumber(lnArr);
-    this.birthDate = randomDate(new Date(2003, 10, 20), new Date(2008, 10, 20)).toJSON().split("T")[0];
+    this.birthDate = randomDate(new Date(currentYear-18, currentMounth, currentDay), new Date(currentYear-13, currentMounth, currentDay)).toJSON().split("T")[0];
   }
 }
 
 const fnArr = ['Andrea', 'Emilie', 'Sharon', 'Bujar', 'Florival', 'Laure', 'Olivia', 'Zaide', 'Felix', 'Oswin'];
 
 const lnArr = ['Sørensen', 'Kanestrøm', 'Hart', 'Arnaud', 'Monteiro', 'Giraud', 'Omahony', 'Moraes', 'Singh', 'Schurig']
+
+
+let currentYear = new Date().getFullYear();
+let currentMounth = new Date().getMonth()+1;
+let currentDay = new Date().getDate();
 
 //---Get random date
 function randomDate(start, end) {

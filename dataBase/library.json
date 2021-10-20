@@ -125,6 +125,18 @@
       "lastName": "Schurig",
       "birthDate": "2006-06-23",
       "id": 21
+    },
+    {
+      "firstName": "Olivia",
+      "lastName": "Monteiro",
+      "birthDate": "2007-09-12",
+      "id": 22
+    },
+    {
+      "firstName": "Bujar",
+      "lastName": "Sørensen",
+      "birthDate": "2005-04-20",
+      "id": 23
     }
   ],
   "books": [],
